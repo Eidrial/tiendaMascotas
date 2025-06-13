@@ -1,0 +1,415 @@
+/* --------------- ESTILOS GENERALES --------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(249, 250, 252, 0.6) 0%, rgba(227, 240, 255, 0.5) 100%), url('/img/inicio.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* --------------- CONTENEDOR LOGO Y REGISTRO --------------- */
+.login-container,
+.register-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.login-container h1,
+.register-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2d3e50;
+}
+
+.login-container label,
+.register-container label {
+    display: block;
+    font-size: 1rem;
+    color: #4a5a6a;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.login-container input,
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.login-container input:focus,
+.register-container input:focus {
+    border-color: #ffb347;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.25);
+}
+
+.login-container input[type="submit"],
+.login-container .back-button,
+.register-container input[type="submit"],
+.register-container .back-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+/* --------------- HOVER --------------- */
+.login-container input[type="submit"]:hover,
+.login-container .back-button:hover,
+.register-container input[type="submit"]:hover,
+.register-container .back-button:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
+
+/* --------------- REGISTRO/LOGIN --------------- */
+.register-link {
+    margin-top: 18px;
+    font-size: 1rem;
+    color: #4a5a6a;
+    text-align: center;
+}
+
+.register-link a {
+    color: #ff9800;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.register-link a:hover {
+    color: #ff5722;
+    text-decoration: underline;
+}
+
+
+/* ---------------REGISTRO --------------- */
+.alert-success {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.product-form-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 40px auto;
+}
+
+.product-form-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2d3e50;
+}
+
+.product-form-container label {
+    display: block;
+    font-size: 1rem;
+    color: #4a5a6a;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.product-form-container input,
+.product-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    resize: vertical;
+    min-height: 44px;
+}
+
+.product-form-container textarea {
+    min-height: 80px;
+    max-height: 200px;
+}
+
+.product-form-container input:focus,
+.product-form-container textarea:focus {
+    border-color: #ffb347;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.25);
+}
+
+.product-form-container input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.product-form-container input[type="submit"]:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
+
+@media (max-width: 500px) {
+    .product-form-container {
+        padding: 40px 20px;
+        max-width: 90vw;
+    }
+    .product-form-container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.back-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.back-button:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
+
+/* --------------- FORMULARIO DE EDICION --------------- */
+.formulario-editar-usuario label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #4a5a6a;
+    text-align: left;
+}
+
+.formulario-editar-usuario input,
+.formulario-editar-usuario select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.formulario-editar-usuario input:focus,
+.formulario-editar-usuario select:focus {
+    border-color: #ffb347;
+    box-shadow: 0 0 8px #ffb347aa;
+}
+
+.formulario-editar-usuario button {
+    margin-top: 1.5rem;
+}
+
+/* ---------------  TABLA DE USUARIOS --------------- */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(60, 90, 130, 0.12);
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #2d3e50;
+}
+
+.tabla-usuarios th {
+    background-color: #ffb347;
+    color: #2d3e50;
+    font-weight: 700;
+}
+
+.tabla-usuarios tr:hover {
+    background-color: #fff3d1;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-eliminar button {
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 14px rgba(255, 82, 82, 0.15);
+    background: linear-gradient(90deg, #ff5252 0%, #ffb347 100%);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.form-eliminar button:hover {
+    background: linear-gradient(90deg, #ff867c 0%, #ffb347 100%);
+}
+
+
+/* Botón editar */
+.btn-editar {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-editar:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Form eliminar inline */
+.form-eliminar {
+    display: inline;
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #ff5252 0%, #ffb347 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(255, 82, 82, 0.15);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background: linear-gradient(90deg, #ff867c 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.gestion-usuarios-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-volver {
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.btn-volver:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+

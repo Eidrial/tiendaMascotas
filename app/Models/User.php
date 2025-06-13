@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin', // Este campo indica si el usuario es admin o no
     ];
 
     /**
@@ -38,11 +39,15 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'is_admin' => 'boolean',
+    ];
+
+    /* NUEVO */
+    public function isAdmin(): bool
+{
+    return $this->is_admin === true;
+}
 }

@@ -1,0 +1,528 @@
+/* --------------- ESTILOS GENERALES --------------- */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(249, 250, 252, 0.8) 0%, rgba(227, 240, 255, 0.7) 100%), url('/img/inicio.jpg') no-repeat center center fixed;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+/* --------------- BIENVENIDA --------------- */
+
+.bienvenida-wrapper {
+    min-height: 100vh;
+    /* altura total de la pantalla */
+    display: flex;
+    align-items: center;
+    /* centra verticalmente */
+    justify-content: center;
+    /* centra horizontalmente */
+    padding: 2rem;
+    /* opcional, para que no toque bordes en móvil */
+    box-sizing: border-box;
+}
+
+.bienvenida {
+    background: rgba(255, 255, 255, 0.671);
+    padding: 60px 40px 50px 40px;
+    border-radius: 32px;
+    box-shadow: 0 8px 32px 0 rgba(60, 90, 130, 0.18);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.bienvenida::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: url('/img/paw.svg') no-repeat center/contain;
+    opacity: 0.09;
+    z-index: 0;
+}
+
+.bienvenida h1 {
+    font-size: 2.8rem;
+    margin-bottom: 18px;
+    font-weight: 800;
+    color: #2d3e50;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(140, 180, 255, 0.08);
+}
+
+.bienvenida p {
+    font-size: 1.15rem;
+    color: #4a5a6a;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+}
+
+.bienvenida a {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    padding: 16px 36px;
+    border-radius: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.bienvenida a:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
+
+.nombre {
+    color: #ffb347;
+}
+
+/* --------------- MODALES --------------- */
+
+/* Modal container estilo igual que login/register */
+.modal-container {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+.modal-container .logo {
+    max-width: 80px;
+    margin-bottom: 18px;
+}
+
+.modal-container h2 {
+    font-size: 1.6rem;
+    color: #d84315;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.modal-container .warning-text {
+    color: #b71c1c;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Botón de confirmación (SÍ) con estilo de peligro */
+.modal-container .danger-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #ff5252 0%, #ffb347 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 82, 82, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.modal-container .danger-button:hover {
+    background: linear-gradient(90deg, #ff867c 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 82, 82, 0.22);
+}
+
+/* Botón NO igual que back-button */
+.modal-container .back-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, #bdbdbd 0%, #e0e0e0 100%);
+    color: #2d3e50;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(189, 189, 189, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.modal-container .back-button:hover {
+    background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(189, 189, 189, 0.22);
+}
+
+/* --------------- TITULO --------------- */
+
+.titulo {
+    font-size: 2.5rem;
+    color: #2d3e50;
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(140, 180, 255, 0.1);
+}
+
+.titulo__color {
+    color: #ffb347;
+    font-weight: 800;
+}
+
+/* ---------------ALERTA --------------- */
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------- GRID DE PRODUCTOS --------------- */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --------------- TARJETAS DE PRODUCTO --------------- */
+.card-producto {
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(60, 90, 130, 0.12);
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.card-producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(60, 90, 130, 0.18);
+}
+
+.card-producto::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffd48033, #ffb3471a);
+    z-index: -1;
+    border-radius: 22px;
+}
+
+/* IMAGEN DEL PRODUCTO */
+.card-producto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.card-producto:hover img {
+    transform: scale(1.03);
+}
+
+/* CONTENIDO DE LA TARJETA */
+.contenido {
+    padding: 0 1rem;
+}
+
+.stock {
+    font-weight: 800;
+    color: #ffb347;
+}
+
+.card-producto h3 {
+    color: #2d3e50;
+    font-size: 1.4rem;
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.card-producto p {
+    color: #4a5a6a;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    margin: 0.75rem 0;
+}
+
+/* STOCK AGOTADO */
+.card-producto .sin-stock {
+    color: #d32f2f;
+    font-weight: bold;
+    background: rgba(255, 0, 0, 0.08);
+    padding: 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+/* PRECIO */
+.card-producto p>b {
+    color: #ffb347;
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+    margin: 1.5rem 0;
+    font-weight: 900;
+}
+
+/* --------------- BOTÓN COMPRAR --------------- */
+.btn-comprar {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+    background: linear-gradient(90deg, #ffcc80 0%, #ffb347 100%);
+}
+
+.btn-comprar:disabled {
+    background: #e0e0e0;
+    color: #9e9e9e;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* --------------- PAGINACIÓN --------------- */
+.pagination ul {
+    list-style: none;
+    padding: 2rem 0 0 0;
+    margin: 0;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination a,
+.pagination span {
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    min-width: 38px;
+    padding: 8px 12px;
+    color: #2d3e50;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pagination a:hover {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+}
+
+.pagination .active span {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+}
+
+.pagination .disabled span {
+    color: #999;
+    cursor: not-allowed;
+    background: #f3f3f3;
+}
+
+/* ---------------ESTILOS ADMIN MENU --------------- */
+
+.admin-menu {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* --------------- BOTÓN DE AÑADIR PRODUCTO --------------- */
+.btn-add-product {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-weight: 700;
+    font-size: 1.08rem;
+    padding: 12px 34px;
+    border: none;
+    border-radius: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.13);
+    transition: background 0.3s, color 0.2s, transform 0.2s, box-shadow 0.3s;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-add-product:hover,
+.btn-add-product:focus {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    color: #2d3e50;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.19);
+    text-decoration: none;
+}
+
+/* --------------- BOTÓN DE LOGOUT --------------- */
+.logout-form {
+    margin: 0;
+}
+
+.btn-simple.logout {
+    display: inline-block;
+    width: auto;
+    min-width: 160px;
+    padding: 12px 34px;
+    background: rgba(70, 60, 60, 0.932);
+    border: none;
+    color: #ff9800;
+    font-weight: 700;
+    font-size: 1.08rem;
+    border-radius: 32px;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.10);
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    outline: none;
+    margin: 0;
+    transition: background 0.3s, color 0.2s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-simple.logout:hover,
+.btn-simple.logout:focus {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.18);
+}
+
+/* --------------- ESTILOS DE VER --------------- */
+
+.product-detail-container {
+    background: rgba(255, 255, 255, 0.88);
+    padding: 50px 40px 40px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+    max-width: 400px;
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+}
+
+.product-detail-container h1 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    font-weight: bold;
+    color: #2d3e50;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(255, 179, 71, 0.14);
+    margin-bottom: 20px;
+    border: 2px solid #ffe0b2;
+    background: #fffbe6;
+}
+
+.product-description {
+    font-size: 1.08rem;
+    color: #4a5a6a;
+    margin-bottom: 16px;
+}
+
+.product-price,
+.product-stock {
+    font-size: 1.08rem;
+    color: #2d3e50;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+    color: #2d3e50;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    margin-top: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 179, 71, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.back-button:hover {
+    background: linear-gradient(90deg, #ffd480 0%, #ffb347 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
