@@ -43,7 +43,8 @@
                 </tbody>
             </table>
 
-            <a href="<?php echo e(url()->previous()); ?>" class="btn-volver" style="margin-top: 2rem;">← Volver atrás</a>
+           <a href="<?php echo e(route('user.admin')); ?>" class="btn-volver" style="margin-top: 2rem;">← Volver atrás</a>
+
         </div>
     </div>
 <?php $__env->stopSection(); ?>

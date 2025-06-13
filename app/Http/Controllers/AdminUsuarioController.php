@@ -18,22 +18,27 @@ class AdminUsuarioController extends Controller
         return view('admin.users.edit', compact('usuario'));
     }
 
-   public function update(Request $request, User $usuario)
-{
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required|email',
-        'role' => 'required|in:user,admin'
-    ]);
+    public function update(Request $request, User $usuario)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'role' => 'required|in:user,admin'
+        ]);
 
-    $usuario->update($request->only('name', 'email', 'role'));
+        // Forzar la actualización del rol
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->role = $request->role;
+        $usuario->save();
 
-    return redirect()->route('admin.usuarios')->with('success', 'Usuario actualizado');
-}
+        return redirect()->route('admin.usuarios')->with('success', 'Usuario actualizado');
+    }
 
-public function destroy(User $usuario)
-{
-    $usuario->delete();
-    return redirect()->route('admin.usuarios')->with('success', 'Usuario eliminado');
-}
+
+    public function destroy(User $usuario)
+    {
+        $usuario->delete();
+        return redirect()->route('admin.usuarios')->with('success', 'Usuario eliminado');
+    }
 }

@@ -78,6 +78,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
+        // validacion de los datos del producto
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
@@ -86,24 +87,31 @@ class ProductoController extends Controller
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
+        // obtiene los datos relevantes para la base de datos
         $data = $request->only(['nombre', 'descripcion', 'precio', 'stock']);
 
         // si se sube una nueva imagen, reemplaza la anterior
         if ($request->hasFile('imagen')) {
+            // guarda el nombre de la imagen anterior antes de borrarla
+            $imagenAnterior = $producto->imagen;
+
+            // elimina la imagen anterior si existe
+            if ($imagenAnterior) {
+                Storage::delete('productos/' . $imagenAnterior);
+            }
             $file = $request->file('imagen');
             $nombreArchivo = $file->getClientOriginalName();
-
-            // guarda la imagen en storage/app/public/productos con el nombre original
-            $file->storeAs('public/productos', $nombreArchivo);
-            // storage es para guardar archivos de forma centralizada, en lugar de depender del almacenamiento local del usuario
+            $file->storeAs('productos', $nombreArchivo, 'public');
 
             $data['imagen'] = $nombreArchivo;
         }
 
+        // actualiza el producto en la base de datos
         $producto->update($data);
 
         return redirect()->route('productos.index')->with('success', 'Producto actualizado');
     }
+
 
     /**
      * Remove the specified resource from storage.

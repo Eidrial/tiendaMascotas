@@ -43,7 +43,8 @@
                 </tbody>
             </table>
 
-            <a href="{{ url()->previous() }}" class="btn-volver" style="margin-top: 2rem;">← Volver atrás</a>
+           <a href="{{ route('user.admin') }}" class="btn-volver" style="margin-top: 2rem;">← Volver atrás</a>
+
         </div>
     </div>
 @endsection
